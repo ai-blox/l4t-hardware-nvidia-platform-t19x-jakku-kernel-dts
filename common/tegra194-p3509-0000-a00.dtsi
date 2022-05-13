@@ -90,22 +90,22 @@
 		status = "okay";
 	};
 	tachometer@39c0000 {
-		status = "okay";
+		status = "disabled";
 	};
 	pwm@3280000 {
-		status = "okay";
+		status = "disabled";
 	};
 
 	pwm@32c0000 {
-		status = "okay";
+		status = "disabled";
 	};
 
 	pwm@32d0000 {
-		status = "okay";
+		status = "disabled";
 	};
 
 	pwm@32f0000 {
-		status = "okay";
+		status = "disbaled";
 	};
 	spi@c260000 {
 		status = "disabled";
@@ -116,8 +116,7 @@
 	};
 
 	gpio@2200000 {
-		/* gpio-name for 40-pin header, gpio-name given as COL(10) x ROW(24),
-		   Tegra-GPIO starts from 288 */
+		/* gpio-name for 40-pin header, gpio-name given as COL(10) x ROW(24), Tegra-GPIO starts from 288 */
 		gpio-line-names = "",   "",     "",     "",     "",     "",     "",     "",     "",     "",
 		"",     "",     "",     "",     "",     "",     "",     "",     "",     "",
 		"",     "",     "",     "",     "",     "",     "",     "",     "",     "",

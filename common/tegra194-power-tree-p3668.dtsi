@@ -22,6 +22,10 @@
 		vqmmc-supply = <&p3668_spmic_sd2>;
 	};
 
+	sdhci@3440000 {
+		vmmc-supply = <&p3668_vdd_sdmmc3_sw>;
+	};
+
 	/* P3668-0001 SKU1 doesn't support SD-card */
 	sdhci@3400000 {
 		vmmc-supply = <&p3668_vdd_sdmmc1_sw>;
