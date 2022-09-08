@@ -328,7 +328,7 @@
 			DI1_ISO {
 					nvidia,pins = "soc_gpio41_pq5";
 					nvidia,function = "rsvd2";
-					nvidia,pull = <TEGRA_PIN_PULL_UP>;
+					nvidia,pull = <TEGRA_PIN_PULL_NONE>;
 					nvidia,tristate = <TEGRA_PIN_ENABLE>;
 					nvidia,enable-input = <TEGRA_PIN_ENABLE>;
 					nvidia,io-high-voltage = <TEGRA_PIN_DISABLE>;
@@ -337,7 +337,7 @@
 			DI2_ISO {
 					nvidia,pins = "soc_gpio23_pq3";
 					nvidia,function = "rsvd0";
-					nvidia,pull = <TEGRA_PIN_PULL_UP>;
+					nvidia,pull = <TEGRA_PIN_PULL_NONE>;
 					nvidia,tristate = <TEGRA_PIN_ENABLE>;
 					nvidia,enable-input = <TEGRA_PIN_ENABLE>;
 					nvidia,lpdr = <TEGRA_PIN_DISABLE>;
@@ -345,7 +345,7 @@
 			DI3_ISO {
 					nvidia,pins = "spi2_sck_pcc0";
 					nvidia,function = "rsvd2";
-					nvidia,pull = <TEGRA_PIN_PULL_UP>;
+					nvidia,pull = <TEGRA_PIN_PULL_NONE>;
 					nvidia,tristate = <TEGRA_PIN_ENABLE>;
 					nvidia,enable-input = <TEGRA_PIN_ENABLE>;
 					nvidia,io-high-voltage = <TEGRA_PIN_DISABLE>;
@@ -354,7 +354,7 @@
 			DI4_ISO {
 					nvidia,pins = "spi2_miso_pcc1";
 					nvidia,function = "rsvd2";
-					nvidia,pull = <TEGRA_PIN_PULL_UP>;
+					nvidia,pull = <TEGRA_PIN_PULL_NONE>;
 					nvidia,tristate = <TEGRA_PIN_ENABLE>;
 					nvidia,enable-input = <TEGRA_PIN_ENABLE>;
 					nvidia,io-high-voltage = <TEGRA_PIN_DISABLE>;
