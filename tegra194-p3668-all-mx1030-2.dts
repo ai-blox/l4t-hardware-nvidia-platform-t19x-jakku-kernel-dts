@@ -38,4 +38,12 @@
 			status = "okay";
 		};
 	};
+
+	thermal-fan-est {
+		status = "disabled";
+	};
+
+	tachometer@39c0000 {
+		status = "disbaled";
+	};
 };
