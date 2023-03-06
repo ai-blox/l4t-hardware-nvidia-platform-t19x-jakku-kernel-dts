@@ -6,6 +6,7 @@
 		gpio-init-0 = <&gpio_mx1030_default>;
 
 		gpio_mx1030_default: default {
+			/*
 			gpio-input = <
 				TEGRA194_MAIN_GPIO(Q, 1)
 				TEGRA194_MAIN_GPIO(S, 4)
@@ -18,7 +19,7 @@
 				TEGRA194_AON_GPIO(CC, 1)
 				TEGRA194_AON_GPIO(CC, 2)
 			>;
-
+			*/
 			gpio-output-high = <
 				TEGRA194_MAIN_GPIO(Q, 5)
 			>;
@@ -30,6 +31,7 @@
 			label = "usbp1";
 			status = "okay";
 		};
+		/*
 
 		di1 {
 			gpio-hog;
@@ -60,8 +62,7 @@
 			label = "do1";
 			status = "okay";
 		};
-
-
+		*/
 	};
 
 
@@ -73,6 +74,7 @@
 			label = "pwr_sdcard";
 			status = "okay";
 		};
+		/*
 		di4 {
 			gpio-hog;
 			input;
@@ -101,6 +103,7 @@
 			label = "do2";
 			status = "okay";
 		};
+		*/
 
 	};
 };
