@@ -23,4 +23,12 @@
 	nvidia,dtbbuildtime = __DATE__, __TIME__;
 
 	compatible = "nvidia,p3449-0000+p3668-0000", "nvidia,p3449-0000+p3668-0001", "nvidia,p3509-0000+p3668-0000", "nvidia,p3509-0000+p3668-0001", "nvidia,tegra194";
+
+    thermal-fan-est {
+        status = "disabled";
+    };
+
+    tachometer@39c0000 {
+        status = "disbaled";
+    };
 };

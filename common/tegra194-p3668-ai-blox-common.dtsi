@@ -388,7 +388,7 @@
 		mmc-ocr-mask = <0>;
 		cd-inverted;
 		vmmc-supply = <&p3668_vdd_sdmmc1_sw>;
-		status = "okay";
+		status = "disabled";
 	};
 
 	mipical@3990000 {
