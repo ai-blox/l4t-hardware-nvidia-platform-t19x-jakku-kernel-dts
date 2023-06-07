@@ -2,17 +2,17 @@
 
  	host1x {
  		vi@15c10000 {
- 			num-channels = <2>;
+ 			num-channels = <1>;
  			ports {
  				#address-cells = <1>;
  				#size-cells = <0>;
  				port@0 {
  					reg = <0>;
- 					liar0233_vi_in0: endpoint {
+ 					liar0233_vi_in2: endpoint {
  						vc-id = <0>;
  						port-index = <2>;
  						bus-width = <2>;
- 						remote-endpoint = <&liar0233_csi_out0>;
+ 						remote-endpoint = <&liar0233_csi_out2>;
  					};
  				};
  			};
@@ -29,16 +29,16 @@
  					#size-cells = <0>;
  					port@0 {
  						reg = <0>;
- 						liar0233_csi_in0: endpoint@0 {
+ 						liar0233_csi_in2: endpoint@0 {
  							port-index = <2>;
  							bus-width = <2>;
- 							remote-endpoint = <&liar0233_ar0233_out0>;
+ 							remote-endpoint = <&liar0233_ar0233_out2>;
  						};
  					};
  					port@1 {
  						reg = <1>;
- 						liar0233_csi_out0: endpoint@1 {
- 							remote-endpoint = <&liar0233_vi_in0>;
+ 						liar0233_csi_out2: endpoint@1 {
+ 							remote-endpoint = <&liar0233_vi_in2>;
  						};
  					};
  				};
@@ -241,11 +241,11 @@
 				#size-cells = <0>;
 				port@0 {
 					reg = <0>;
-					liar0233_ar0233_out0: endpoint {
+					liar0233_ar0233_out2: endpoint {
 						vc-id = <0>;
 						port-index = <2>;
 						bus-width = <2>;
-						remote-endpoint = <&liar0233_csi_in0>;
+						remote-endpoint = <&liar0233_csi_in2>;
 					};
 				};
 			};
