@@ -27,7 +27,7 @@
 #include "tegra194-spmic-p3668.dtsi"
 
 &head0 {
-	status = "okay";
+	status = "disabled";
 	nvidia,fb-bpp = <32>;
 	nvidia,fbmem-size = <265420800>; /* 8K (7680*4320) 32bpp double buffered */
 	nvidia,fb-flags = <TEGRA_FB_FLIP_ON_PROBE>;
@@ -41,7 +41,7 @@
 };
 
 &head1 {
-	status = "okay";
+	status = "disabled";
 	nvidia,fb-bpp = <32>;
 	nvidia,fbmem-size = <265420800>; /* 8K (7680*4320) 32bpp double buffered */
 	nvidia,fb-flags = <TEGRA_FB_FLIP_ON_PROBE>;
@@ -57,35 +57,35 @@
 };
 
 &sor0 {
-	status = "okay";
+	status = "disabled";
 	nvidia,active-panel = <&sor0_dp_display>;
 };
 
 &sor0_dp_display {
-	status = "okay";
+	status = "disabled";
 	nvidia,is_ext_dp_panel = <1>;
 };
 
 &sor1 {
-	status = "okay";
+	status = "disabled";
 	nvidia,active-panel = <&sor1_hdmi_display>;
 };
 
 &sor1_hdmi_display {
-	status = "okay";
+	status = "disabled";
 	disp-default-out {
 		nvidia,out-flags = <TEGRA_DC_OUT_HOTPLUG_LOW>;
 	};
 };
 
 &dpaux0 {
-	status = "okay";
+	status = "disabled";
 };
 
 &dpaux1 {
-	status = "okay";
+	status = "disabled";
 };
 
 &tegra_cec {
-	status = "okay";
+	status = "disabled";
 };
