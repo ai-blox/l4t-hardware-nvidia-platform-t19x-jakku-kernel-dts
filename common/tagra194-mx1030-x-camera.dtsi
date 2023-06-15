@@ -19,7 +19,7 @@
  		};
  
  		nvcsi@15a00000 {
- 			num-channels = <2>;
+ 			num-channels = <1>;
  			#address-cells = <1>;
  			#size-cells = <0>;
  			channel@0 {
@@ -253,7 +253,7 @@
 				src-csi-port = "b";
 				dst-csi-port = "a";
 				serdes-csi-link = "a";
-				csi-mode = "2x2";
+				csi-mode = "1x4";
 				st-vc = <0>;
 				vc-id = <0>;
 				num-lanes = <2>;
