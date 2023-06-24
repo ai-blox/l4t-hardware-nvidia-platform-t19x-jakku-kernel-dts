@@ -41,7 +41,7 @@
 			nvidia,gmsl-dser-device = <&dser_5_8>;
 		};
 
-		ar0233_a@30 {
+		ar0234_a@30 {
 			def-addr = <0x18>;
 			/* Define any required hw resources needed by driver */
 			/* ie. clocks, io pins, power sources */

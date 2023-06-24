@@ -11,8 +11,8 @@
  					liar0233_vi_in2: endpoint {
  						vc-id = <0>;
  						port-index = <2>;
- 						bus-width = <2>;
- 						remote-endpoint = <&liar0233_csi_out2>;
+ 						bus-width = <4>;
+ 						remote-endpoint = <&liar0234_csi_out2>;
  					};
  				};
  			};
@@ -29,16 +29,16 @@
  					#size-cells = <0>;
  					port@0 {
  						reg = <0>;
- 						liar0233_csi_in2: endpoint@0 {
+ 						liar0234_csi_in2: endpoint@0 {
  							port-index = <2>;
- 							bus-width = <2>;
- 							remote-endpoint = <&liar0233_ar0233_out2>;
+ 							bus-width = <4>;
+ 							remote-endpoint = <&liar0234_ar0234_out2>;
  						};
  					};
  					port@1 {
  						reg = <1>;
- 						liar0233_csi_out2: endpoint@1 {
- 							remote-endpoint = <&liar0233_vi_in2>;
+ 						liar0234_csi_out2: endpoint@1 {
+ 							remote-endpoint = <&liar0234_vi_in2>;
  						};
  					};
  				};
@@ -47,8 +47,8 @@
  	};
 
 	i2c@31e0000 {
-		ar0233_a@30 {
-			compatible = "nvidia,ar0233";
+		ar0234_a@30 {
+			compatible = "nvidia,ar0234";
 
 			reg = <0x30>;
 			reg_mux = <0>;
@@ -57,7 +57,7 @@
 			physical_w = "15.0";
 			physical_h = "12.5";
 
-			sensor_model ="ar0233";
+			sensor_model ="ar0234";
 
 			/* Defines number of frames to be dropped by driver internally after applying */
 			/* sensor crop settings. Some sensors send corrupt frames after applying */
@@ -155,85 +155,44 @@
 			* If sensor does not support embedded metadata value should be 0.
 			*/
 
-			mode0 {/*mode ar0233_MODE_2048X1280_CROP_30FPS_LINEAR*/
+			mode0 {/*mode AR0234_MODE_1920X1080_CROP_30FPS*/
 				mclk_khz = "24000";
-				num_lanes = "2";
-				tegra_sinterface = "serial_c";
+				num_lanes = "4";
+				tegra_sinterface = "serial_a";
 				vc_id = "0";
 				discontinuous_clk = "no";
 				dpcm_enable = "false";
 				cil_settletime = "0";
-				dynamic_pixel_bit_depth = "12";
-				csi_pixel_bit_depth = "12";
-				mode_type = "bayer";
-				pixel_phase = "grbg";
-
-				active_w = "2048";
-				active_h = "1280";
-				readout_orientation = "0";
-				line_length = "3344";
-				inherent_gain = "1";
-				pix_clk_hz = "135030720";
-				serdes_pix_clk_hz = "833333333";
-
-				gain_factor = "100";
-				min_gain_val = "100"; /* dB */
-				max_gain_val = "800"; /* dB */
-				step_gain_val = "1"; /* 0.3 */
-				default_gain = "100";
-				min_hdr_ratio = "1";
-				max_hdr_ratio = "1";
-				framerate_factor = "1000000";
-				min_framerate = "30000000";
-				max_framerate = "30000000";
-				step_framerate = "1";
-				default_framerate = "30000000";
-				exposure_factor = "1000000";
-				min_exp_time = "98"; /*us, 2 lines*/
-				max_exp_time = "33333";
-				step_exp_time = "1";
-					default_exp_time = "33333";/* us */
-				embedded_metadata_height = "0";
-			};
-
-			mode1 {/*mode ar0233_MODE_1920X1080_CROP_30FPS*/
-				mclk_khz = "24000";
-				num_lanes = "2";
-				tegra_sinterface = "serial_c";
-				vc_id = "0";
-				discontinuous_clk = "no";
-				dpcm_enable = "false";
-				cil_settletime = "0";
-				dynamic_pixel_bit_depth = "12";
-				csi_pixel_bit_depth = "12";
+				dynamic_pixel_bit_depth = "10";
+				csi_pixel_bit_depth = "10";
 				mode_type = "bayer";
 				pixel_phase = "grbg";
 
 				active_w = "1920";
-				active_h = "1080";
+				active_h = "1200";
 				readout_orientation = "0";
-				line_length = "3640";
+				line_length = "2200";
 				inherent_gain = "1";
-				pix_clk_hz = "146983200";
+				pix_clk_hz = "240000000";
 				serdes_pix_clk_hz = "833333333";
 
 				gain_factor = "100";
-				min_gain_val = "100"; /* dB */
-				max_gain_val = "800"; /* dB */
+				min_gain_val = "200"; /* dB */
+				max_gain_val = "1600"; /* dB */
 				step_gain_val = "1"; /* 0.3 */
-				default_gain = "100";
+				default_gain = "200";
 				min_hdr_ratio = "1";
 				max_hdr_ratio = "1";
 				framerate_factor = "1000000";
 				min_framerate = "30000000";
-				max_framerate = "30000000";
+				max_framerate = "100000000";
 				step_framerate = "1";
-				default_framerate = "30000000";
+				default_framerate = "100000000";
 				exposure_factor = "1000000";
-				min_exp_time = "59"; /*us, 2 lines*/
-				max_exp_time = "33333";
+				min_exp_time = "20"; /*us, 2 lines*/
+				max_exp_time = "10000";
 				step_exp_time = "1";
-				default_exp_time = "33333";/* us */
+				default_exp_time = "10000";/* us */
 				embedded_metadata_height = "0";
 			};
 			ports {
@@ -241,11 +200,11 @@
 				#size-cells = <0>;
 				port@0 {
 					reg = <0>;
-					liar0233_ar0233_out2: endpoint {
+					liar0234_ar0234_out2: endpoint {
 						vc-id = <0>;
 						port-index = <2>;
-						bus-width = <2>;
-						remote-endpoint = <&liar0233_csi_in2>;
+						bus-width = <4>;
+						remote-endpoint = <&liar0234_csi_in2>;
 					};
 				};
 			};
@@ -256,8 +215,8 @@
 				csi-mode = "1x4";
 				st-vc = <0>;
 				vc-id = <0>;
-				num-lanes = <2>;
-				streams = "ued-u1", "raw12";	
+				num-lanes = <4>;
+				streams = "ued-u1", "raw10";	
 			};
  		};
  	};
@@ -292,7 +251,7 @@
  		* isp_bw_margin_pct = <>;
  		* Isp bandwidth margin in percentage
  		*/
- 		num_csi_lanes = <2>;
+ 		num_csi_lanes = <4>;
  		max_lane_speed = <4000000>;
  		min_bits_per_pixel = <10>;
  		vi_peak_byte_per_pixel = <2>;
@@ -310,16 +269,16 @@
  		 */
  		modules {
  			module0 {
- 				badge = "ar0233_rear_liar0233";
+ 				badge = "ar0234_rear_liar0234";
  				position = "rear";
  				orientation = "1";
  				drivernode0 {
  					/* Declare PCL support driver (classically known as guid)  */
  					pcl_id = "v4l2_sensor";
  					/* Driver v4l2 device name */
- 					devname = "ar0233 8-0030";
+ 					devname = "ar0234 8-0030";
  					/* Declare the device-tree hierarchy to driver instance */
- 					proc-device-tree = "/proc/device-tree/i2c@31e0000/ar0233_a@30";
+ 					proc-device-tree = "/proc/device-tree/i2c@31e0000/ar0234_a@30";
  				};
  			};
  		};
