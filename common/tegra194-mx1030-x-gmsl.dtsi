@@ -23,7 +23,7 @@
 		dser_5_8: max96724@2e {
 			compatible = "ai-blox,max96724";
 			reg = <0x2e>;
-			csi-mode = "4x2";
+			csi-mode = "2x4";
 			max-src = <2>;
 			reset-gpios = <&pca9539 1 GPIO_ACTIVE_HIGH>;
 			vdd_cam_1v2-supply= <&en_vdd_cam_1v2>;
