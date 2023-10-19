@@ -1,0 +1,56 @@
+/{
+
+	i2c@31e0000 {
+		pca9539: gpio@74 {
+			compatible = "nxp,pca9539";
+			reg = <0x74>;
+			gpio-controller;
+			#gpio-cells = <2>;
+			vcc-supply = <&battery_reg>;
+			dser_1_4_pwdnb {
+				gpio-hog;
+				gpios = <11 0>;
+				output-high;
+				label = "dser_1_4_pwdnb";
+			};
+			dser_5_8_pwdnb {
+				gpio-hog;
+				gpios = <1 0>;
+				output-high;
+				label = "dser_5_8_pwdnb";
+			};
+		};
+		dser_5_8: max96724@2e {
+			compatible = "ai-blox,max96724";
+			reg = <0x2e>;
+			csi-mode = "2x4";
+			max-src = <2>;
+			reset-gpios = <&pca9539 1 GPIO_ACTIVE_HIGH>;
+			vdd_cam_1v2-supply= <&en_vdd_cam_1v2>;
+		};
+
+		ser_prim: max9295_prim@62 {
+			compatible = "nvidia,max9295";
+			reg = <0x62>;
+			is-prim-ser;
+		};
+
+		ser_a: max9295_a@40 {
+			compatible = "nvidia,max9295";
+			reg = <0x40>;
+			nvidia,gmsl-dser-device = <&dser_5_8>;
+		};
+
+		ar0234_a@30 {
+			def-addr = <0x18>;
+			/* Define any required hw resources needed by driver */
+			/* ie. clocks, io pins, power sources */
+			clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH1>,
+					 <&bpmp_clks TEGRA194_CLK_EXTPERIPH1>;
+			clock-names = "extperiph1", "pllp_grtba";
+			mclk = "extperiph1";
+			nvidia,gmsl-ser-device = <&ser_a>;
+			nvidia,gmsl-dser-device = <&dser_5_8>;
+		};
+	};
+};
