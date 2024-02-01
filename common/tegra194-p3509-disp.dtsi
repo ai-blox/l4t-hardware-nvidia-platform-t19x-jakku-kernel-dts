@@ -26,6 +26,17 @@
 #include "tegra194-fixed-regulator-p3509-0000-a00.dtsi"
 #include "tegra194-spmic-p3668.dtsi"
 
+
+#define DLC0700XBP30RF_1024x600 \
+[00 ff ff ff ff ff ff 00 05 d7 00 00 00 00 00 00\
+ ff 22 01 03 80 32 1f 78 07 ee 95 a3 54 4c 99 26\
+ 0f 50 54 00 00 00 01 01 01 01 01 01 01 01 01 01\
+ 01 01 01 01 01 01 c2 10 00 14 41 58 3c 20 74 0a\
+ 5a 08 14 bc 52 00 00 1e 00 00 00 fd 00 17 f0 0f\
+ ff 0f 00 0a 20 20 20 20 20 20 00 00 00 fc 00 48\
+ 44 54 56 20 31 30 38 30 70 0a 20 20 00 00 00 00\
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 b2]
+
 &head0 {
 	status = "okay";
 	nvidia,fb-bpp = <32>;
@@ -69,10 +80,13 @@
 &sor1 {
 	status = "okay";
 	nvidia,active-panel = <&sor1_hdmi_display>;
+	nvidia,xbar-ctrl = <0x0 0x1 0x2 0x3 0x4>;
 };
 
 &sor1_hdmi_display {
 	status = "okay";
+	compatible = "hdmi,display";	
+ 	nvidia,edid = DLC0700XBP30RF_1024x600;
 	disp-default-out {
 		nvidia,out-flags = <TEGRA_DC_OUT_HOTPLUG_LOW>;
 	};
