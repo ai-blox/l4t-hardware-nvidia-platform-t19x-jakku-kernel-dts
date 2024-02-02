@@ -37,6 +37,15 @@
 			touchscreen-size-y = <480>;
 			status = "okay";
 		};
+
+		goodix: gt911@5d {
+			compatible = "goodix,gt911";
+			reg = <0x5d>;
+			interrupt-parent = <&tegra_main_gpio>;
+			interrupts = <TEGRA194_MAIN_GPIO(H, 1) 0x01>;
+			status = "okay";
+		};
+
 	};
 
 	thermal-fan-est {
