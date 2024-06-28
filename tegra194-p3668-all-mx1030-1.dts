@@ -44,3 +44,48 @@
         status = "disbaled";
     };
 };
+
+
+&hdr40_i2c1 {
+	tp2912@44 {
+		compatible = "tp2912";
+		reg = <0x44>;
+
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			tp2912_in: endpoint {
+				remote-endpoint = <&adv7611_out>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+		};
+	};
+
+	adv7611@4c {
+		compatible = "adi,adv7611";
+		reg = <0x4c>;
+
+		reset-gpios = <&tegra_main_gpio TEGRA194_MAIN_GPIO(Q, 3) GPIO_ACTIVE_LOW>;
+
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		default-input = <0>;
+
+		port@0 {
+			reg = <0>;
+		};
+
+		port@1 {
+			reg = <1>;
+			adv7611_out: endpoint {
+				remote-endpoint = <&tp2912_in>;
+			};
+		};
+	};
+};
