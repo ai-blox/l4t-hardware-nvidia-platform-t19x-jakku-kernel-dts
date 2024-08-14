@@ -45,7 +45,6 @@
     };
 };
 
-
 &hdr40_i2c1 {
 	tp2912@44 {
 		compatible = "tp2912";
@@ -75,8 +74,6 @@
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		default-input = <0>;
-
 		port@0 {
 			reg = <0>;
 		};
@@ -85,6 +82,7 @@
 			reg = <1>;
 			adv7611_out: endpoint {
 				remote-endpoint = <&tp2912_in>;
+				default-input = <0>;
 			};
 		};
 	};
