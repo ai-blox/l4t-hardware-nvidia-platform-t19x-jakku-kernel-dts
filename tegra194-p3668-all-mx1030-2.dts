@@ -44,6 +44,6 @@
 	};
 
 	tachometer@39c0000 {
-		status = "disbaled";
+		status = "disabled";
 	};
 };
