@@ -145,6 +145,7 @@
 		reg = <0x4c>;
 
 		reset-gpios = <&tegra_main_gpio TEGRA194_MAIN_GPIO(Q, 3) GPIO_ACTIVE_LOW>;
+		DdcCecHpd-gpios = <&tegra_main_gpio TEGRA194_MAIN_GPIO(S, 4) GPIO_ACTIVE_HIGH>;
 
 		#address-cells = <1>;
 		#size-cells = <0>;
