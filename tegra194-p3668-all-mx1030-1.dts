@@ -18,6 +18,50 @@
 #include "common/tegra194-p3509-0000-a00.dtsi"
 #include "common/tegra194-mx1030-1-gpio.dtsi"
 
+/* EDID contents
+ * 	Section "Monitor"
+ * 			Identifier "AI-BLOX DISP"
+ * 			ModelName "AI-BLOX DISP"
+ * 			VendorName "AIB"
+ * 			# Monitor Manufactured week 22 of 2019
+ * 			# EDID version 1.3
+ * 			# Digital Display
+ * 			DisplaySize 530 300
+ * 			Gamma 2.20
+ * 			Option "DPMS" "true"
+ * 			Horizsync 30-90
+ * 			VertRefresh 30-75
+ * 			# Maximum pixel clock is 250MHz
+ * 	
+ * 			#Extension block found. Parsing...
+ * 			Modeline        "Mode 3" 37.12 1280 1390 1430 1650 720 725 730 750 +hsync +vsync
+ * 			Modeline        "Mode 0" 37.12 1280 1390 1430 1650 720 725 730 750 +hsync +vsync
+ * 			Modeline        "Mode 1" 148.500 1920 2008 2052 2200 1080 1084 1089 1125 +hsync +vsync
+ * 			Modeline        "Mode 2" 74.250 1280 1390 1420 1650 720 725 730 750 +hsync +vsync
+ * 			Modeline        "Mode 4" 74.25 1280 1390 1430 1650 720 725 730 750 +hsync +vsync
+ * 			Modeline        "Mode 5" 74.25 1920 2008 2052 2200 1080 1084 1089 1125 +hsync +vsync
+ * 			Modeline        "Mode 6" 148.50 1920 2008 2052 2200 1080 1084 1089 1125 +hsync +vsync
+ * 			Option "PreferredMode" "Mode 3"
+ * 	EndSection
+ */
+#define EDID_HDMI_AND_VISY \
+[00 ff ff ff ff ff ff 00  05 22 a1 24 01 01 01 01 \
+ 16 1d 01 03 80 35 1e 78  ea 0e f5 a5 55 50 9e 26 \
+ 10 50 54 00 00 00 01 01  01 01 01 01 01 01 01 01 \
+ 01 01 01 01 01 01 80 0e  00 72 51 d0 1e 20 6e 28 \
+ 55 00 13 2b 21 00 00 1e  00 00 00 fd 00 1e 4b 1e \
+ 5a 19 00 0a 20 20 20 20  20 20 00 00 00 fc 00 41 \
+ 49 2d 42 4c 4f 58 20 44  49 53 50 0a 00 00 00 ff \
+ 00 41 49 42 32 30 32 34  30 39 32 35 0a 20 01 7d \
+ 02 03 16 f1 42 90 04 65  03 0c 00 10 00 68 1a 00 \
+ 00 01 01 28 4b e6 80 0e  00 72 51 d0 1e 20 6e 28 \
+ 55 00 13 2b 21 00 00 1e  01 1d 00 72 51 d0 1e 20 \
+ 6e 28 55 00 13 2b 21 00  00 1e 01 1d 80 18 71 38 \
+ 2d 40 58 2c 45 00 13 2b  21 00 00 1e 02 3a 80 18 \
+ 71 38 2d 40 58 2c 45 00  13 2b 21 00 00 1e 00 00 \
+ 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 \
+ 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 5d]
+
 &head0 {
     status = "disabled";
 };
@@ -43,6 +87,7 @@
 
 &sor0_hdmi_display {
 	status = "okay";
+	// nvidia,edid = EDID_HDMI_AND_VISY;
 	display-timings {
 		1280x720-32-30Hz-37125000 {
 			clock-frequency = <37125000>;
@@ -159,6 +204,7 @@
 			adv7611_out: endpoint {
 				remote-endpoint = <&tp2912_in>;
 				default-input = <0>;
+				// edid = EDID_HDMI_AND_VISY;
 			};
 		};
 	};
